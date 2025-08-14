@@ -1,5 +1,6 @@
 import { fetchFilteredCustomers } from "@/app/lib/data";
 import Table from "@/app/ui/customers/table";
+import { Suspense } from "react";
 
 export default async function Page() {
   try {
@@ -20,7 +21,9 @@ export default async function Page() {
       <main>
         <h1 className="text-2xl font-bold">Customers</h1>
         <div className="mt-4">
-          <Table customers={customers} />
+          <Suspense>
+            <Table customers={customers} />
+          </Suspense>
         </div>
       </main>
     );
